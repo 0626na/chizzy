@@ -6,8 +6,11 @@ const Live = () => {
       {/* 이슈: 라이브 스트리밍 UI가 영역을 벗어나서 footer 영역까지 침범하는 문제 발생 
           원인: iframe을 감싸는 div가 h-full로 높이를 설정함. 이는 부모 div를 100% 차지하기에 이런 상태에
           다른 요소가 존재하는 경우, 이미 높이 100% 인 상태에서 다른 요소의 높이까지 추가되어 영역을 벗어남.
+          
+          해결: flexbox를 적용하여 이슈 해결. flexbox로 처리하면 h-full 설정된 요소가 있다 하더라도 flexbox 내 높이를 유연하게
+          서로 차지하기에 다른 영역으로 침범하지 않는다.
       */}
-      <div className="relative bg-gray-500 h-full box-border">
+      <div className="flex flex-col bg-gray-500">
         <h3>안녕</h3>
         <div className="bg-black h-full">
           <iframe
