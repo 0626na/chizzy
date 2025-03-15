@@ -64,14 +64,14 @@ const Chat = () => {
   };
 
   return (
-    <div className="flex flex-col ">
+    <div className="flex flex-col h-full min-h-0">
       {/* 채팅 헤더 */}
       <div className="text-white border-b border-black p-4">
         <h3>채팅</h3>
       </div>
 
       {/* 채팅 메시지 리스트 */}
-      <div className="flex-1 overflow-y-auto p-4 text-white">
+      <div className="flex-1 min-h-0 overflow-y-auto p-4 text-white">
         {messages.map((msg, index) => (
           <p key={index}>{msg.text}</p>
         ))}
