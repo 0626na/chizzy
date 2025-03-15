@@ -1,3 +1,5 @@
+import CreateStreamButton from "@/app/components/createStreamButton";
+
 export default function Home() {
   return (
     <div>
@@ -5,11 +7,12 @@ export default function Home() {
       <p>이 페이지에는 라이브 스트리밍 영상 목록을 보일 예정</p>
       <p>
         Go to{" "}
-        <a href="/live" style={{ color: "skyblue" }}>
+        {/* <a href="/live" style={{ color: "skyblue" }}>
           Live Page
-        </a>{" "}
+        </a>{" "} */}
         to watch the stream!
       </p>
+      <CreateStreamButton />
     </div>
   );
 }

@@ -14,14 +14,17 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="m-0 p-0">
-        <header className="bg-black p-4 text-white">
-          <h1>Chizzy MVP</h1>
-        </header>
-        {children}
-        <footer className="bg-black p-4 text-white">
-          <p>© 2024 LiveCast MVP</p>
-        </footer>
+      <body>
+        <div className="flex flex-col h-screen">
+          <header className="bg-black p-4 text-white">
+            <h1>Chizzy MVP</h1>
+          </header>
+
+          {children}
+          <footer className="bg-black p-4 text-white">
+            <p>© 2024 LiveCast MVP</p>
+          </footer>
+        </div>
       </body>
     </html>
   );
