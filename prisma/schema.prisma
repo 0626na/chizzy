@@ -1,0 +1,22 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Stream {
+  id        String   @id @default(uuid()) // 고유 ID (UUID 자동 생성)
+  title     String // 방송 제목
+  streamId  String   @unique // Cloudflare에서 제공하는 Stream ID
+  streamKey String // 스트림 키 (RTMP URL 포함)
+  createdAt DateTime @default(now()) // 생성 시간
+}
