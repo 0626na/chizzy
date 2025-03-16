@@ -1,5 +1,6 @@
 import { getStreams } from "@/app/actions/getStreams";
 import CreateStreamButton from "@/app/components/createStreamButton";
+import Link from "next/link";
 
 export default async function Home() {
   const streams = await getStreams();
@@ -17,6 +18,7 @@ export default async function Home() {
         </div>
       </div>
     );
+
   return (
     <div className="h-full flex flex-col">
       <h1 className="text-2xl font-bold text-center my-4">
@@ -25,12 +27,15 @@ export default async function Home() {
 
       <div className="grid grid-cols-3 lg:grid-cols-6 gap-4 p-4">
         {streams.map((stream) => (
-          <div
+          <Link
             key={stream.streamId}
-            className="bg-blue-500 p-4 rounded-lg shadow-lg flex items-center justify-center h-48"
+            href={`/live/${stream.streamId}`}
+            passHref
           >
-            <p className="text-white font-bold">{stream.title}</p>
-          </div>
+            <div className="bg-blue-500 p-4 rounded-lg shadow-lg flex items-center justify-center h-48 cursor-pointer hover:bg-blue-600 transition">
+              <p className="text-white font-bold">{stream.title}</p>
+            </div>
+          </Link>
         ))}
       </div>
 
